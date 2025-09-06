@@ -1,6 +1,5 @@
 source "https://rubygems.org"
-ruby "3.1.2"
-
+ruby "3.2.2"
 # Rails
 gem "rails", "~> 7.2.2", ">= 7.2.2.2"
 
@@ -56,3 +55,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+ruby '3.2.2'
+ruby '3.2.2'
