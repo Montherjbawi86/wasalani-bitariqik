@@ -28,7 +28,9 @@ gem "kaminari"         # للترقيم
 gem "rails-i18n"       # للدعم العربي
 
 # Database
-gem "pg", group: :production
+gem "pg"
+gem 'rails_12factor', group: :production  # For logs and assets
+
 gem "sqlite3", group: [:development]
 
 # XML/HTML parsing
