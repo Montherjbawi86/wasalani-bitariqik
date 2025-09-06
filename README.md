@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# syria
+=======
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +25,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+>>>>>>> 1832621 (Initial commit to new GitHub)
