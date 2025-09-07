@@ -1,59 +1,54 @@
 source "https://rubygems.org"
+
 ruby "3.2.2"
-# Rails
-gem "rails", "~> 7.2.2", ">= 7.2.2.2"
 
-# Web server
-gem "puma", ">= 5.0"
+gem "rails", "~> 7.1.0"
+# Remove bundler from Gemfile - let it be managed automatically
+# gem "bundler", "~> 2.7.1"
 
-# Assets
+# Use the Puma web server
+gem 'puma', '~> 6.0'  # Changed to ~> 6.0 for better version control
+
+# Use JavaScript with ESM import maps
+gem "importmap-rails"
 gem "sprockets-rails"
 gem "dartsass-rails"
-gem "sassc-rails"
 
-# JavaScript / Frontend
-gem "importmap-rails"
+# Hotwire's SPA-like page accelerator
 gem "turbo-rails"
+
+# Authentication and UI
+gem 'devise'
+gem 'bootstrap', '~> 5.1'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem 'kaminari' # للترقيم
+gem 'rails-i18n' # للدعم العربي
+
+# Hotwire's modest JavaScript framework
 gem "stimulus-rails"
 
-# UI
-gem "bootstrap", "~> 5.1"
-gem "jquery-rails"
-gem "font-awesome-rails"
-
-# Auth & Pagination
-gem "devise"
-gem "kaminari"         # للترقيم
-gem "rails-i18n"       # للدعم العربي
-
-# Database
-gem "pg"
-gem 'rails_12factor', group: :production  # For logs and assets
-
-gem "sqlite3", group: [:development]
-
-# XML/HTML parsing
-gem "nokogiri", ">= 1.13.10"
-
-# JSON API builder
+# Build JSON APIs with ease
 gem "jbuilder"
 
-# Misc
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
+
+# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Security & Linting (development only, not loaded in prod)
-group :development do
-  gem "web-console"
-  gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
-  gem "debug", platforms: [:mri]
-  gem "brakeman", require: false
-  gem "rubocop-rails-omakase", require: false
+# Database gems - PROPERLY GROUPED
+group :development, :test do
+  gem 'sqlite3', '~> 1.4'
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[mri windows]
 end
 
-group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
+group :production do
+  gem 'pg', '~> 1.1'
 end
-ruby '3.2.2'
-ruby '3.2.2'
+
+group :development do
+  # Use console on exceptions pages
+  gem "web-console"
+end

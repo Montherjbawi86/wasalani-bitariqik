@@ -217,7 +217,7 @@ GEM
     psych (5.2.6)
       date
       stringio
-    puma (7.0.1)
+    puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.1)
@@ -326,6 +326,7 @@ PLATFORMS
   aarch64-linux
   aarch64-linux-gnu
   aarch64-linux-musl
+  arm-linux
   arm-linux-gnu
   arm-linux-gnueabihf
   arm-linux-musl
@@ -339,7 +340,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap (~> 5.1)
-  bundler (~> 2.7.1)
   dartsass-rails
   debug
   devise
@@ -349,7 +349,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg (~> 1.1)
-  puma (>= 6.0.0)
+  puma (~> 6.0)
   rails (~> 7.1.0)
   rails-i18n
   sprockets-rails
