@@ -1,12 +1,12 @@
 class Booking < ApplicationRecord
-  enum status: { pending: 0, confirmed: 1, canceled: 2, rejected: 3 }
-
+  belongs_to :user    # Change to user instead of passenger
   belongs_to :ride
-  belongs_to :passenger, class_name: 'User'
+
+  enum status: { pending: 0, confirmed: 1, canceled: 2, rejected: 3 }
 
   validates :seats, numericality: { only_integer: true, greater_than: 0 }
   validate :available_seats
-  validate :passenger_cannot_be_driver
+  validate :user_cannot_be_driver  # Rename this method
 
   private
 
@@ -16,8 +16,8 @@ class Booking < ApplicationRecord
     end
   end
 
-  def passenger_cannot_be_driver
-    if passenger == ride.driver
+  def user_cannot_be_driver  # Renamed method
+    if user == ride.driver
       errors.add(:base, "لا يمكن للسائق حجز مقعد في رحلته الخاصة")
     end
   end

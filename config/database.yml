@@ -1,10 +1,6 @@
-# PostgreSQL. Versions 9.3 and up are supported.
-#
-# Install the pg driver:
-#   gem install pg
-# On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+# config/database.yml - CORRECTED VERSION
 
+# Anchor definition MUST come FIRST
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -17,9 +13,12 @@ development:
   # host: localhost
   # port: 5432
 
+# Only ONE test section - remove the duplicate
 test:
   <<: *default
   database: wasalani_bitariqik_test
+  host: localhost
+  port: 5432
 
 # IMPORTANT: For Heroku, production should only use DATABASE_URL
 production:

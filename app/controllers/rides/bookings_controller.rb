@@ -1,3 +1,4 @@
+# app/controllers/rides/bookings_controller.rb
 class Rides::BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_ride
@@ -8,18 +9,19 @@ class Rides::BookingsController < ApplicationController
     @booking = @ride.bookings.build
   end
 
-  def create
-    @booking = @ride.bookings.build(booking_params)
-    @booking.passenger = current_user
-    @booking.status = :pending
+def create
+  @booking = @ride.bookings.build(booking_params)
+  @booking.user_id = current_user.id      # Set user_id
+  @booking.passenger_id = current_user.id # Set passenger_id
+  @booking.status = :pending
 
-    if @booking.save
-      @ride.update(available_seats: @ride.available_seats - @booking.seats)
-      redirect_to ride_path(@ride), notice: 'تم طلب الحجز بنجاح، في انتظار موافقة السائق.'
-    else
-      render :new
-    end
+  if @booking.save
+    @ride.update(available_seats: @ride.available_seats - @booking.seats)
+    redirect_to ride_path(@ride), notice: 'تم طلب الحجز بنجاح، في انتظار موافقة السائق.'
+  else
+    render :new
   end
+end
 
   private
 

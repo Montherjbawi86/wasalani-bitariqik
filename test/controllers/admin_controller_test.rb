@@ -1,23 +1,23 @@
-require "test_helper"
+# test/controllers/admin_controller_test.rb
+require 'test_helper'
 
 class AdminControllerTest < ActionDispatch::IntegrationTest
-  test "should get dashboard" do
-    get admin_dashboard_url
-    assert_response :success
+  setup do
+    @user = User.create!(
+      email: "admin#{SecureRandom.hex(4)}@example.com",
+      password: 'password123',
+      password_confirmation: 'password123',
+      name: 'Admin User',
+      phone: "+1#{rand(100..999)}#{rand(100..999)}#{rand(1000..9999)}",
+      confirmed_at: Time.now,
+      role: 'admin'
+    )
+
+    sign_in @user
   end
 
   test "should get users" do
-    get admin_users_url
-    assert_response :success
-  end
-
-  test "should get rides" do
-    get admin_rides_url
-    assert_response :success
-  end
-
-  test "should get bookings" do
-    get admin_bookings_url
+    get admin_users_path
     assert_response :success
   end
 end

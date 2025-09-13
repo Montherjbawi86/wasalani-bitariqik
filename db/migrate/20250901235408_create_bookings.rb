@@ -1,4 +1,4 @@
-class CreateBookings < ActiveRecord::Migration[7.2]
+class CreateBookings < ActiveRecord::Migration[7.1]
   def change
     # تأجيل إنشاء المفتاح الخارجي حتى يتم إنشاء جدول rides
     create_table :bookings do |t|

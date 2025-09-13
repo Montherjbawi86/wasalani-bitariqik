@@ -13,10 +13,13 @@ gem 'puma', '~> 6.0'  # Changed to ~> 6.0 for better version control
 gem "importmap-rails"
 gem "sprockets-rails"
 gem "dartsass-rails"
+gem 'bcrypt', '~> 3.1.7'
 
 # Hotwire's SPA-like page accelerator
 gem "turbo-rails"
-
+group :development, :test do
+  gem 'factory_bot_rails'
+end
 # Authentication and UI
 gem 'devise'
 gem 'bootstrap', '~> 5.1'
@@ -24,7 +27,11 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'kaminari' # للترقيم
 gem 'rails-i18n' # للدعم العربي
-
+gem 'database_cleaner-active_record'
+# Gemfile
+group :test do
+  gem 'database_cleaner-active_record'
+end
 # Hotwire's modest JavaScript framework
 gem "stimulus-rails"
 
@@ -44,7 +51,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
 end
 
-group :production do
+group :production, :test do
   gem 'pg', '~> 1.1'
 end
 

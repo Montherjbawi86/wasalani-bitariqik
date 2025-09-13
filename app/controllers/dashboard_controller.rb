@@ -1,10 +1,11 @@
+# app/controllers/dashboard_controller.rb
 class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
     if current_user.driver?
-      # إحصائيات السائق
-      @rides = current_user.rides.order(created_at: :desc)
+      # إحصائيات السائق - استخدام rides_as_driver بدلاً من rides
+      @rides = current_user.rides_as_driver.order(created_at: :desc)  # تغيير هنا
       @active_rides = @rides.upcoming
       @completed_rides = @rides.where('departure_time < ?', Time.now)
       @total_bookings = Booking.joins(:ride).where(rides: { driver_id: current_user.id })

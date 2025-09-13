@@ -9,9 +9,6 @@ class BookingsController < ApplicationController
     else
       @bookings = current_user.bookings.order(created_at: :desc)
     end
-
-    # إذا كنت تستخدم Kaminari للترقيم
-    # @bookings = @bookings.page(params[:page]).per(10)
   end
 
   def show
@@ -26,7 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    if current_user == @booking.passenger || current_user == @booking.ride.driver
+    if current_user == @booking.user || current_user == @booking.ride.driver
       if @booking.update(status: :canceled)
         # إعادة المقاعد المتاحة إذا تم الإلغاء
         @booking.ride.update(available_seats: @booking.ride.available_seats + @booking.seats)
@@ -69,7 +66,7 @@ class BookingsController < ApplicationController
   end
 
   def authorize_access
-    unless current_user == @booking.passenger || (current_user.driver? && current_user == @booking.ride.driver)
+    unless current_user == @booking.user || (current_user.driver? && current_user == @booking.ride.driver)
       redirect_to bookings_path, alert: 'غير مصرح لك بالوصول إلى هذا الحجز.'
     end
   end

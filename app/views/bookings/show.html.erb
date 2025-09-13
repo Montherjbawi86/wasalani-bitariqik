@@ -113,15 +113,15 @@
                 <div class="card-body">
                   <div class="d-flex align-items-center mb-2">
                     <i class="fas fa-user-circle text-warning me-2"></i>
-                    <span><strong>الاسم:</strong> <%= @booking.passenger.name %></span>
+                  <span><strong>الاسم:</strong> <%= @booking.user.name %></span>
                   </div>
                   <div class="d-flex align-items-center mb-2">
                     <i class="fas fa-phone text-warning me-2"></i>
-                    <span><strong>الهاتف:</strong> <%= @booking.passenger.phone %></span>
+                    <span><strong>الهاتف:</strong> <%= @booking.user.phone %></span>
                   </div>
                   <div class="d-flex align-items-center">
                     <i class="fas fa-envelope text-warning me-2"></i>
-                    <span><strong>البريد:</strong> <%= @booking.passenger.email %></span>
+                    <span><strong>البريد:</strong> <%= @booking.user.email %></span>
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@
             <%= link_to 'العودة إلى الحجوزات', bookings_path, class: 'btn btn-secondary' %>
             <%= link_to 'عرض الرحلة', ride_path(@booking.ride), class: 'btn btn-outline-primary' %>
 
-            <% if current_user == @booking.passenger && @booking.pending? %>
+            <% if current_user == @booking.user && @booking.pending? %>
               <%= button_to 'إلغاء الحجز', booking_path(@booking), method: :delete,
                   data: { confirm: 'هل أنت متأكد من إلغاء هذا الحجز؟' },
                   class: 'btn btn-danger' %>

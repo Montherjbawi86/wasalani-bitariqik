@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @rides = Ride.upcoming.available.order(created_at: :desc).limit(6)
+    @rides = Ride.upcoming  # Use the scope instead of class method
   end
 
   def about

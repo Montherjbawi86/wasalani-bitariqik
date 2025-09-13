@@ -24,29 +24,30 @@
               </div>
             <% end %>
 
-            <div class="row">
-              <div class="col-md-6 mb-4">
-                <%= form.label :from_city, "المدينة المنطلقة", class: "form-label fw-bold text-primary" %>
-                <div class="input-group">
-                  <span class="input-group-text bg-light">
-                    <i class="fas fa-map-marker-alt text-primary"></i>
-                  </span>
-                  <%= form.text_field :from_city, class: "form-control", required: true,
-                                    placeholder: "أدخل المدينة المنطلقة" %>
-                </div>
-              </div>
+<!-- Add these two fields after the city fields -->
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <%= form.label :origin, "المكان المنطلق *", class: "form-label fw-bold text-primary" %>
+          <div class="input-group">
+            <span class="input-group-text bg-light">
+              <i class="fas fa-location-arrow text-primary"></i>
+            </span>
+            <%= form.text_field :origin, class: "form-control", required: true,
+                              placeholder: "أدخل المكان المنطلق (مثال: دمشق - المزة)" %>
+          </div>
+        </div>
 
-              <div class="col-md-6 mb-4">
-                <%= form.label :to_city, "المدينة الواصلة", class: "form-label fw-bold text-primary" %>
-                <div class="input-group">
-                  <span class="input-group-text bg-light">
-                    <i class="fas fa-map-marker-alt text-primary"></i>
-                  </span>
-                  <%= form.text_field :to_city, class: "form-control", required: true,
-                                    placeholder: "أدخل المدينة الواصلة" %>
-                </div>
-              </div>
-            </div>
+        <div class="col-md-6 mb-4">
+          <%= form.label :destination, "الوجهة *", class: "form-label fw-bold text-primary" %>
+          <div class="input-group">
+            <span class="input-group-text bg-light">
+              <i class="fas fa-flag-checkered text-primary"></i>
+            </span>
+            <%= form.text_field :destination, class: "form-control", required: true,
+                              placeholder: "أدخل الوجهة (مثال: حلب - الجامعة)" %>
+          </div>
+        </div>
+      </div>
 
             <div class="row">
               <div class="col-md-6 mb-4">

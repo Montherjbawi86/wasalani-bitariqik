@@ -48,9 +48,9 @@
           <li class="nav-item">
             <%= link_to "جميع الرحلات", rides_path, class: "nav-link #{'active' if current_page?(rides_path)}" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "كيفية العمل", how_it_works_path, class: "nav-link #{'active' if current_page?(how_it_works_path)}" %>
-          </li>
+         <li class="nav-item">
+  <%= link_to "كيفية العمل", "/how_it_works", class: "nav-link #{'active' if current_page?('/how_it_works')}" %>
+</li>
           <li class="nav-item">
             <%= link_to "عن المنصة", about_path, class: "nav-link #{'active' if current_page?(about_path)}" %>
           </li>

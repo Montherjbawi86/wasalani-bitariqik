@@ -1,5 +1,18 @@
+# config/locales/ar.yml
 ar:
   devise:
+    # Add these failure messages
+    failure:
+      invalid: "بريد إلكتروني أو كلمة مرور غير صحيحة"
+      user:
+        invalid: "بريد إلكتروني أو كلمة مرور غير صحيحة"
+      inactive: "حسابك غير مفعّل بعد."
+      locked: "حسابك مغلق مؤقتاً."
+      not_found_in_database: "بريد إلكتروني أو كلمة مرور غير صحيحة"
+      unauthenticated: "يجب تسجيل الدخول للمتابعة."
+      unconfirmed: "يجب تأكيد بريدك الإلكتروني للمتابعة."
+
+    # Your existing translations
     shared:
       links:
         sign_in: 'تسجيل الدخول'
@@ -25,6 +38,7 @@ ar:
     unlocks:
       new:
         title: 'إعادة إرسال تعليمات فتح الحساب'
+
   activerecord:
     attributes:
       user:
@@ -42,3 +56,20 @@ ar:
         taken: 'مستخدم مسبقاً'
         too_short: 'قصير جداً (الحد الأدنى %{count} حروف)'
         too_long: 'طويل جداً (الحد الأقصى %{count} حروف)'
+        # Optional: Add these success messages too
+ar:
+  devise:
+    # Success messages
+    sessions:
+      signed_in: 'تم تسجيل الدخول بنجاح.'
+      signed_out: 'تم تسجيل الخروج بنجاح.'
+    registrations:
+      signed_up: 'مرحباً! تم إنشاء حسابك بنجاح.'
+      updated: 'تم تحديث حسابك بنجاح.'
+      destroyed: 'تم حذف حسابك بنجاح.'
+    passwords:
+      send_instructions: 'سيصلك بريد إلكتروني خلال دقائق مع تعليمات إعادة تعيين كلمة المرور.'
+      updated: 'تم تغيير كلمة المرور بنجاح.'
+    confirmations:
+      send_instructions: 'سيصلك بريد إلكتروني خلال دقائق مع تعليمات تفعيل حسابك.'
+      confirmed: 'تم تفعيل حسابك بنجاح.'
