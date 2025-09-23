@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 8.0.3"
 # Remove bundler from Gemfile - let it be managed automatically
 # gem "bundler", "~> 2.7.1"
 
