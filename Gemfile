@@ -7,7 +7,7 @@ gem "rails", "~> 7.1.0"
 # gem "bundler", "~> 2.7.1"
 
 # Use the Puma web server
-gem 'puma', '~> 6.0'  # Changed to ~> 6.0 for better version control
+gem 'puma', '~> 7.1'  # Changed to ~> 6.0 for better version control
 
 # Use JavaScript with ESM import maps
 gem "importmap-rails"
