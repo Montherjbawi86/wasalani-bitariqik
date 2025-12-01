@@ -46,7 +46,7 @@ gem "bootsnap", require: false
 
 # Database gems - PROPERLY GROUPED
 group :development, :test do
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 2.8'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
 end
