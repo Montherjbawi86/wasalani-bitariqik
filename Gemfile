@@ -13,7 +13,7 @@ gem 'puma', '~> 6.0'  # Changed to ~> 6.0 for better version control
 gem "importmap-rails"
 gem "sprockets-rails"
 gem "dartsass-rails"
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.21'
 
 # Hotwire's SPA-like page accelerator
 gem "turbo-rails"
